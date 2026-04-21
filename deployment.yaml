@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gha-edge-manual
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gha-edge-manual
+  template:
+    metadata:
+      labels:
+        app: gha-edge-manual
+    spec:
+      securityContext:
+        runAsUser: 999
+      containers:
+      - name: gha-runner
+        image: ghcr.io/daisuke-k/gha-runner:24.04-2.333.1
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: 1
+            memory: 1Gi 
+        env:
+        - name: GITHUB_OWNER
+          value: hogehoge
+        - name: GITHUB_REPO
+          value: hogehoge
+        - name: GITHUB_PAT
+          valueFrom:
+            secretKeyRef:
+              name: github-pat
+              key: token
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: github-pat
+type: Opaque
+data:
+  token: [base64 encoded GitHub Personal Access Token]
