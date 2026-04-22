@@ -8,7 +8,7 @@ REG_TOKEN=$(curl -sX POST -H "Authorization: token ${GITHUB_PAT}" \
 ./config.sh --url https://github.com/${GITHUB_OWNER}/${GITHUB_REPO} \
             --token ${REG_TOKEN} \
             --name $(hostname) \
-            --unattended --replace --ephemeral
+            --unattended --replace --ephemeral --disableupdate
 
 # ランナー実行（ジョブが終わるとこのプロセスが終了する）
 ./run.sh
