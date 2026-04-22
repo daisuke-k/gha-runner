@@ -1,7 +1,7 @@
 FROM ubuntu:24.04
 
-ARG RUNNER_VER="2.333.1"
-ARG RUNNER_HASH="18f8f68ed1892854ff2ab1bab4fcaa2f5abeedc98093b6cb13638991725cab74"
+ARG RUNNER_VER="2.334.0"
+ARG RUNNER_HASH="048024cd2c848eb6f14d5646d56c13a4def2ae7ee3ad12122bee960c56f3d271"
 
 RUN apt update && apt install -y \
   curl \
