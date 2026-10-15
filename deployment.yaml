@@ -16,7 +16,7 @@ spec:
         runAsUser: 999
       containers:
       - name: gha-runner
-        image: ghcr.io/daisuke-k/gha-runner:24.04-2.333.1
+        image: ghcr.io/daisuke-k/gha-runner:24.04-2.337.0
         imagePullPolicy: IfNotPresent
         resources:
           requests:
